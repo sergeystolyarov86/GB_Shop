@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Market</title>
+</head>
+<body>
+<h1>Product Page</h1>
+<h3 th:text="${'ID: ' + productFront.getId()}"/>
+<h3 th:text="${'Title: ' + productFront.getTitle()}"/>
+<h3 th:text="${'Cost: ' + productFront.getCost()}"/>
+</body>
+</html>
