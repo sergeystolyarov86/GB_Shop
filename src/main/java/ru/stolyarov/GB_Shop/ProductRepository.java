@@ -37,5 +37,12 @@ public class ProductRepository {
   public List<Product> getProductsList() {
         return products;
     }
+   public void add(Long id,String title,Double cost){
+        products.add(new Product(id,title,cost));
+   }
+   public void addProduct(Product product){
+        products.add(product);
+   }
+
 
 }
