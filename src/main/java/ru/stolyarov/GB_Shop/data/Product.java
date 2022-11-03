@@ -1,22 +1,26 @@
-package ru.stolyarov.GB_Shop;
+package ru.stolyarov.GB_Shop.data;
 
 
 import lombok.Data;
 
+import javax.persistence.*;
+
 @Data
+@Entity
+@Table(name = "products")
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     Long id;
+    @Column(name = "title")
     String title;
+    @Column(name = "cost")
     double cost;
 
     public Product() {
     }
 
-    public Product(long id, String title, double coast) {
-        this.id = id;
-        this.title = title;
-        this.cost = coast;
-    }
 
     @Override
     public String toString() {

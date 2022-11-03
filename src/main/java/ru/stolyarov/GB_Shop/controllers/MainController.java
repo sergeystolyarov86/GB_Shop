@@ -2,7 +2,7 @@ package ru.stolyarov.GB_Shop.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.stolyarov.GB_Shop.Product;
+import ru.stolyarov.GB_Shop.data.Product;
 import ru.stolyarov.GB_Shop.services.ProductService;
 
 import java.util.List;
@@ -18,11 +18,10 @@ public class MainController {
         return productService.getAllProducts();
     }
 
-//    @GetMapping("/product")
-//    public String getProductById(Model model, @RequestParam Long id) {
-//        model.addAttribute("productFront", productService.getProduct(id));
-//        return "product.html";
-//    }
+    @GetMapping("/product/find/{id}")
+    public Product getProductById(@PathVariable Long id) {
+        return productService.getProductById(id);
+    }
 
     @GetMapping("/product/change_cost")
     public void changeCost(@RequestParam Long productId, @RequestParam Double delta) {
@@ -39,9 +38,9 @@ public class MainController {
         productService.addProduct(product);
     }
 
-    // еще не доделал,не успеваю
+
     @GetMapping ("/product/delete/{id}")
     public void delete(@PathVariable Long id) {
-        productService.deleteProduct(id);
+        productService.deleteProductById(id);
     }
 }
