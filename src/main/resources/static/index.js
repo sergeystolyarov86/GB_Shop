@@ -7,21 +7,35 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
                 $scope.productList = response.data;
             });
     };
-    $scope.loadProducts();
 
-    $scope.changeCost = function (productId, delta){
-        $http({
-            url: contextPath + '/product/change_cost',
-            method: 'GET',
-            params: {
-                productId: productId,
-                delta: delta
-            }
-        }).then(function (response){
-            $scope.loadProducts();
-        });
+
+    $scope.deleteProduct = function (productId) {
+        $http.get(contextPath + '/product/delete/' + productId)
+            .then(function (response) {
+                $scope.loadProducts();
+            });
     };
 
-    $scope.loadProducts();
+    $scope.createProductJson = function (){
+        $http.post(contextPath + '/product/add', $scope.newProductJson)
+            .then(function (response) {
+                $scope.loadProducts();
+            });
+    };
+
+    // $scope.changeCost = function (productId, delta){
+    //     $http({
+    //         url: contextPath + '/product/change_cost',
+    //         method: 'GET',
+    //         params: {
+    //             productId: productId,
+    //             delta: delta
+    //         }
+    //     }).then(function (response){
+    //         $scope.loadProducts();
+    //     });
+    // };
+
+
 
 });

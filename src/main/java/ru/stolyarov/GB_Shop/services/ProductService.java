@@ -18,9 +18,6 @@ public class ProductService {
     public Product getProductById(Long id) {
         return repository.getById(id);
     }
-    public void deleteById(Long id) {
-        repository.deleteById(id);
-    }
 
     public List<Product> getAllProducts() {
         return repository.findAll();
@@ -37,5 +34,9 @@ public class ProductService {
 
     public void deleteProductById(Long id) {
         repository.deleteById(id) ;
+    }
+
+    public void addProduct(Product product) {
+        repository.save(product);
     }
 }

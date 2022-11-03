@@ -33,10 +33,10 @@ public class MainController {
 //        return "simple_form";
 //    }
 
-//    @PostMapping("/product/add")
-//    public void addProductPost(@RequestBody Product product) {
-//        productService.addProduct(product);
-//    }
+    @PostMapping("/product/add")
+    public void addProductPost(@RequestBody Product product) {
+        productService.addProduct(product);
+    }
 
 
     @GetMapping ("/product/delete/{id}")
