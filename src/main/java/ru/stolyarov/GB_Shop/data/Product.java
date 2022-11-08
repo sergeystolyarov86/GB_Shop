@@ -1,12 +1,16 @@
 package ru.stolyarov.GB_Shop.data;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "products")
 public class Product {
     @Id
@@ -17,9 +21,6 @@ public class Product {
     String title;
     @Column(name = "cost")
     double cost;
-
-    public Product() {
-    }
 
 
     @Override
